@@ -2,7 +2,7 @@ DOCKER_TAG ?=$(shell git rev-parse --short HEAD)
 DOCKER_IMG ?= kudobuilder/www
 
 .PHONY: docker-build
-docker-build: external-docs
+docker-build:
 	DOCKER_BUILDKIT=1 docker build -t ${DOCKER_IMG}:${DOCKER_TAG} .
 
 .PHONY: docker-run
