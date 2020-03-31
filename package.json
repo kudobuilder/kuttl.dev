@@ -1,0 +1,18 @@
+{
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "vuepress": "^1.2.0"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev content",
+    "docs:build": "vuepress build content",
+    "docs:clean": "rm -rf node_modules && yarn install"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "markdown-it-footnote": "^3.0.2",
+    "markdown-it-imsize": "2.0.1",
+    "vuepress-plugin-container": "^2.0.2",
+    "vuepress-plugin-feed": "^0.1.7"
+  }
+}
