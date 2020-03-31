@@ -2,7 +2,7 @@
 home: true
 navbar: true
 hideNavbarLogo: false
-<!-- heroImage: /images/kudo_horizontal_color@2x.png -->
+heroImage: /images/cuttlefish.jpg
 heroText:
 tagline: The KUbernetes Test TooL (kuttl)
 actionText: ⇝ Get Started ⇜

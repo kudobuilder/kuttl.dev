@@ -37,12 +37,13 @@ module.exports = {
     title: 'KUDO',
     base: '/',
     themeConfig: {
-        logo: '/images/kudo_horizontal_color@2x.png',
+        logo: '/images/kuttl-small.jpg',
         sidebar: {
             '/docs/': [
               'what-is-kuttl',
+              'getting-started',
               'cli',
-              'testing',
+              'api-integration',
               'testing/asserts-errors',
               'testing/reference',
               'testing/steps',

@@ -2,11 +2,11 @@
 title: Getting Started
 ---
 
-# KUDO Test Harness
+# KUTTL Test Harness
 
-KUDO includes a declarative integration testing harness for testing operators, KUDO, [Helm charts](testing/tips.md#helm-testing), and any other Kubernetes applications or controllers. Test cases are written as plain Kubernetes resources and can be run against a mocked control plane, locally in kind, or any other Kubernetes cluster.
+KUTTL is a declarative integration testing harness for testing operators, KUDO, [Helm charts](testing/tips.md#helm-testing), and any other Kubernetes applications or controllers. Test cases are written as plain Kubernetes resources and can be run against a mocked control plane, locally in kind, or any other Kubernetes cluster.
 
-Whether you are developing an application, controller, operator, or deploying Kubernetes clusters the KUDO test harness helps you easily write portable end-to-end, integration, and conformance tests for Kubernetes without needing to write any code.
+Whether you are developing an application, controller, operator, or deploying Kubernetes clusters the KUTTL test harness helps you easily write portable end-to-end, integration, and conformance tests for Kubernetes without needing to write any code.
 
 <h2>Table of Contents</h2>
 
@@ -14,28 +14,28 @@ Whether you are developing an application, controller, operator, or deploying Ku
 
 ## Installation
 
-The test harness CLI is included in the KUDO CLI, to install we can install the CLI using [krew](https://github.com/kubernetes-sigs/krew):
+The test harness CLI is included in the KUTTL CLI, to install we can install the CLI using [krew](https://github.com/kubernetes-sigs/krew):
 
 ```bash
-krew install kudo
+krew install kuttl
 ```
 
 You can now invoke the KUDO test CLI:
 
 ```bash
-kubectl kudo test --help
+kubectl kuttl test --help
 ```
 
-See the [KUDO installation guide](cli.md#installation) for alternative installation methods.
+See the [KUTTL installation guide](cli.md#installation) for alternative installation methods.
 
 ## Writing Your First Test
 
-Now that the KUDO CLI is installed, we can write a test. The KUDO test CLI organizes tests into suites:
+Now that the KUTTL CLI is installed, we can write a test. The KUTTL test CLI organizes tests into suites:
 
 * A "test step" defines a set of Kubernetes manifests to apply and a state to assert on (wait for or expect).
 * A "test case" is a collection of test steps that are run serially - if any test step fails then the entire test case is considered failed.
 * A "test suite" is comprised of many test cases that are run in parallel.
-* The "test harness" is the tool that runs test suites (the KUDO CLI).
+* The "test harness" is the tool that runs test suites (the KUTTL CLI).
 
 ### Create a Test Case
 
@@ -99,7 +99,7 @@ This test step will be considered completed once the pod matches the state that 
 Let's run this test suite:
 
 ```
-kubectl kudo test --start-kind=true ./tests/e2e/
+kubectl kuttl test --start-kind=true ./tests/e2e/
 ```
 
 Running this command will:
@@ -109,7 +109,7 @@ Running this command will:
 * Create the resources defined in `tests/e2e/example-test/00-install.yaml`.
 * Wait for the state defined in `tests/e2e/example-test/00-assert.yaml` to be reached.
 * Collect the kind cluster's logs.
-* Tear down the kind cluster (or you can run `kubectl kudo test` with `--skip-cluster-delete` to keep the cluster around after the tests run).
+* Tear down the kind cluster (or you can run `kubectl kuttl test` with `--skip-cluster-delete` to keep the cluster around after the tests run).
 
 ### Write a Second Test Step
 
@@ -140,12 +140,12 @@ status:
 Run the test suite again and the test will pass:
 
 ```
-kubectl kudo test --start-kind=true ./tests/e2e/
+kubectl kuttl test --start-kind=true ./tests/e2e/
 ```
 
 ### Test Suite Configuration
 
-To add this test suite to your project, create a `kudo-test.yaml` file:
+To add this test suite to your project, create a `kuttl-test.yaml` file:
 
 ```yaml
 apiVersion: kudo.dev/v1alpha1
@@ -155,12 +155,12 @@ testDirs:
 startKIND: true
 ```
 
-Now we can run the tests just by running `kubectl kudo test` with no arguments.
+Now we can run the tests just by running `kubectl kuttl test` with no arguments.
 
-Any arguments provided on the command line will override the settings in the `kudo-test.yaml` file, e.g. to skip using kind and run the tests against a live Kubernetes cluster, run:
+Any arguments provided on the command line will override the settings in the `kuttl-test.yaml` file, e.g. to skip using kind and run the tests against a live Kubernetes cluster, run:
 
 ```
-kubectl kudo test --start-kind=false
+kubectl kuttl test --start-kind=false
 ```
 
 Now that your first test suite is configured, see [test environments](testing/test-environments.md) for documentation on customizing your test environment or the [test step documentation](testing/steps.md) to write more advanced tests.

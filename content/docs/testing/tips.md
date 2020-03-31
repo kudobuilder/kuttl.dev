@@ -44,7 +44,7 @@ involvedObject:
 
 ## Custom Resource Definitions
 
-New Custom Resource Definitions are not immediately available for use in the Kubernetes API until the Kubernetes API has acknowledged them. 
+New Custom Resource Definitions are not immediately available for use in the Kubernetes API until the Kubernetes API has acknowledged them.
 
 If a Custom Resource Definition is being defined inside of a test step, be sure to to wait for the `CustomResourceDefinition` object to appear.
 
@@ -118,7 +118,7 @@ kindNodeCache: true
 
 ## Image caching in kind
 
-By default, [kind](https://kind.sigs.k8s.io/) does not persist its containerd directory, meaning that on every test run you will have to download all of the images defined in the tests. However, the kudo test harness supports creating a named Docker volume for each node specified in the kind configuration (or the default node if no nodes or configuration are specified) that will be used for each test run:
+By default, [kind](https://kind.sigs.k8s.io/) does not persist its containerd directory, meaning that on every test run you will have to download all of the images defined in the tests. However, the kuttl test harness supports creating a named Docker volume for each node specified in the kind configuration (or the default node if no nodes or configuration are specified) that will be used for each test run:
 
 ```yaml
 apiVersion: kudo.dev/v1alpha1
