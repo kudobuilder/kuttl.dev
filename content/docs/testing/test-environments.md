@@ -91,7 +91,7 @@ Your `kuttl-test.yaml` can specify the settings needed to setup the cluster:
 ```yaml
 apiVersion: kudo.dev/v1alpha1
 kind: TestSuite
-startKIND: true
+startControlPlane: true
 testDirs:
 - tests/e2e/
 manifestDirs:
