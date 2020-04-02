@@ -1,38 +1,3 @@
-const feed_options = {
-  enable: false,
-  canonical_base: 'https://kuttl.dev/',
-  count: 20,
-  feeds: {
-    rss2: {
-      enable: true,
-      file_name: 'rss.xml',
-      head_link: {
-        enable: true,
-        type: 'application/rss+xml',
-        title: '%%site_title%% RSS Feed',
-      }
-    },
-    atom1: {
-      enable: true,
-      file_name: 'feed.atom',
-      head_link: {
-        enable: true,
-        type: 'application/atom+xml',
-        title: '%%site_title%% Atom Feed',
-      }
-    },
-    json1: {
-      enable: true,
-      file_name: 'feed.json',
-      head_link: {
-        enable: true,
-        type: 'application/json',
-        title: '%%site_title%% JSON Feed',
-      }
-    },
-  }
-};
-
 module.exports = {
     title: 'KUDO',
     base: '/',
@@ -40,8 +5,9 @@ module.exports = {
         logo: '/images/kuttl-small.jpg',
         sidebar: {
             '/docs/': [
+              '/docs/',
               'what-is-kuttl',
-              'getting-started',
+              'kuttl-test-harness',
               'cli',
               'api-integration',
               'testing/asserts-errors',
@@ -52,14 +18,13 @@ module.exports = {
               'contributing'
             ],
         },
-        docsRepo: "kudobuilder/www",
+        docsRepo: "kudobuilder/kuttl.dev",
         docsDir: "content",
         docsBranch: "master",
         editLinks: true,
         editLinkText: "Help us improve this page",
         nav: [
             { text: 'Docs', link: '/docs/' },
-            { text: 'Blog', link: 'http://kudo.dev/blog/' },
             { text: 'Community', link: 'http://kudo.dev/community/' }
         ]
     },
@@ -94,7 +59,6 @@ module.exports = {
             before: name => `<div class="teaser custom-block"><h2 class="custom-block-title">${name}</h2>`,
             after: '</div>',
         }],
-        [ 'feed', feed_options ],
         ['check-md', {
           pattern: '**/*.md',
         }]

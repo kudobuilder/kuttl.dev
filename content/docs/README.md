@@ -1,10 +1,10 @@
-# Introducing KUTTL
+# Getting Started
 
 ## Pre-requisites
 
-Before you get started using KUTTL, you need to have a running Kubernetes cluster setup. If you already have a cluster there are no prerequesites.  If you want to use the mocked control plane or kind you will need [Kind](https://github.com/kubernetes-sigs/kind).
+Before you get started using KUTTL, you need to have a running Kubernetes cluster setup. If you already have a cluster there are no prerequisites.  If you want to use the mocked control plane or Kind, you will need [Kind](https://github.com/kubernetes-sigs/kind).
 
-- Setup a Kubernetes Cluster in version `1.13`
+- Setup a Kubernetes Cluster in version `1.13` or later
 - Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) in version `1.13` or later.
 
 ## Install KUTTL CLI
@@ -21,4 +21,4 @@ Once you have a running cluster with `kubectl` installed along with the KUTTL CL
 $ kubectl kuttl test path/to/test-suite
 ```
 
-Check out details on [getting started](getting-started.md)
+[Learn more](what-is-kuttl.md) about KUTTL and check out how to get started with the [KUTTL test harness](kuttl-test-harness.md).

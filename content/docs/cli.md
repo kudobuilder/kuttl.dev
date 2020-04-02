@@ -27,7 +27,7 @@ or you can compile and install the plugin from your `$GOPATH/src/github.com/kudo
 make cli-install
 ```
 
-Another alternative is `krew` the package manager for kubectl plugins [doc](https://github.com/kubernetes-sigs/krew)
+Another alternative is [`krew`](https://github.com/kubernetes-sigs/krew), the package manager for kubectl plugins.
 
 ```bash
 kubectl krew install kuttl
