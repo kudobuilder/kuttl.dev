@@ -34,9 +34,9 @@
       />
       <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
       <NavLinks class="can-hide"/>
-      <!-- links to SLack, Twitter and GitHub -->
+      <!-- links to Slack, Twitter and GitHub -->
       <span style="margin: .5em" />
-      <a href="https://github.com/kudobuilder/kudo" target="_blank" rel="noopener noreferrer">
+      <a href="https://github.com/kudobuilder/kuttl" target="_blank" rel="noopener noreferrer">
         <img class="nav-icon" src="/images/logos/github-64.png" alt="GitHub"  />
       </a>
       <a href="https://twitter.com/kudobuilder" target="_blank" rel="noopener noreferrer">
