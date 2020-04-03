@@ -1,7 +1,3 @@
----
-title: Getting Started
----
-
 # KUTTL Test Harness
 
 KUTTL is a declarative integration testing harness for testing operators, KUDO, [Helm charts](testing/tips.md#helm-testing), and any other Kubernetes applications or controllers. Test cases are written as plain Kubernetes resources and can be run against a mocked control plane, locally in kind, or any other Kubernetes cluster.

@@ -1,21 +1,21 @@
 # API Integration
 
-It is possible to integration KUTTL into your own Go test infrastructure.  KUDO provides as an example `kubectl kudo test` uses the KUTTL test harness.  The following are the necessary steps.
+It is possible to integrate KUTTL into your own Go test infrastructure.  KUDO provides as an example `kubectl kudo test` using the KUTTL test harness.  The following are the necessary steps.
 
 
 ## Add KUTTL to Go.mod
 
 `go get github.com/kudobuilder/kuttl`
 
-or get specific version
+or get a specific version
 
 `go get github.com/kudobuilder/kuttl@v0.1.0`
 
 ## Common Imports to Use
 
-The test harness type is defined in apis package similar to a Kubernetes type along with a version package.  The test harness is currently v1beta1 and provides the main configuration for a testsuite.
+The test harness type is defined in an `apis` package similar to a Kubernetes type along with a version package.  The test harness is currently `v1beta1` and provides the main configuration for a test suite.
 
-The `test` package contains the `test.Harness` implementation (given the configuration of the testharness configuration type previously mentioned).  The `test.Harness` provides the "run" of the test run and needs a Go `t *testing.T`.
+The `test` package contains the `test.Harness` implementation (given the configuration of the test harness configuration type previously mentioned).  The `test.Harness` provides the "run" of the test run and needs a Go `t *testing.T`.
 
 The `testutils` package contains utilities for docker, kubernetes, loggers and testing.
 
@@ -51,4 +51,4 @@ Run: func(cmd *cobra.Command, args []string) {
 
 ```
 
-A more complete example is providing in KUDOs [cmd/test.go](https://github.com/kudobuilder/kudo/blob/master/pkg/kudoctl/cmd/test.go)
+A more complete example is provided in KUDOs [cmd/test.go](https://github.com/kudobuilder/kudo/blob/master/pkg/kudoctl/cmd/test.go)

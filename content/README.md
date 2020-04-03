@@ -14,8 +14,8 @@ footer: Written in Go, maintained by good people.
 <div class="flex-container">
 
 ::: flex-box
-<h4>Focus on your software …</h4>
-The KUbernetes Test TooL (KUTTL) is a highly productive toolkit for writing tests agaisnt Kubernetes operators and controllers.
+<h4>Focus on your tests …</h4>
+The KUbernetes Test TooL (KUTTL) is a highly productive toolkit for writing tests against Kubernetes operators and controllers.
 :::
 
 ::: flex-box
@@ -25,7 +25,7 @@ Using KUTTL you can test Kubernetes applications, controllers and operators in a
 
 ::: flex-box
 <h4>Testing Safety Net</h4>
-All software targetted for production use needs to have tests, and ever changing distributed cluster environments ampilify that need.  KUTTL accelerates the ability to create end-to-end testing in a kubernetes environoment.
+All software targeted for production use needs to have tests, and ever changing distributed cluster environments amplify that need.  KUTTL accelerates the ability to create end-to-end testing in a kubernetes environment.
 :::
 
 </div>
@@ -53,7 +53,7 @@ You are a developer who wants an easy way to test Operators, without writing Go.
 :::
 
 ::: flex-box
-You are developer or QA and you want to test different combinations of Kubernete applications (helm, kudo, operator sdk operators).  
+You are developer or QA and you want to test different combinations of Kubernetes applications (Helm, KUDO, Operator SDK operators).  
 :::
 
 ::: flex-box
@@ -75,18 +75,7 @@ It's insanely easy to get started with KUTTL - follow this [handy guide](/docs/)
 
 ## Join the KUDO Community
 
-[Get started](docs/README.md) with KUTTL today, join the [community](https://kudo.dev/community/), and build your next operator with KUDO!
+[Get started](docs/README.md) with KUTTL today, join the [KUDO community](https://kudo.dev/community/), and test your next operator with KUTTL!
 
-You can find more talks, tutorials, and events on our [community page](https://kudo.dev/community/#community-content).
+You can find more talks, tutorials, and events on the KUDO [community page](https://kudo.dev/community/#community-content).
 
-KUDO is used by:
-
-<div class="flex-container">
-
-<Logo alt="MayaData" img="/images/logos/mayadata.jpg" url="https://mayadata.io/" />
-
-<Logo alt="ArangoDB" img="/images/logos/arangodb.png" url="https://arangodb.com/" />
-
-<Logo alt="D2iQ" img="/images/logos/d2iq.png" url="https://d2iq.com/" />
-
-</div>

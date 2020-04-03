@@ -1,5 +1,5 @@
 DOCKER_TAG ?=$(shell git rev-parse --short HEAD)
-DOCKER_IMG ?= kudobuilder/www
+DOCKER_IMG ?= kudobuilder/kuttl.dev
 
 .PHONY: docker-build
 docker-build:
