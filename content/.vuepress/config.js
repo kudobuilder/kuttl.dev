@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'KUDO',
+    title: 'KUTTL',
     base: '/',
     themeConfig: {
         logo: '/images/kuttl-small.jpg',
