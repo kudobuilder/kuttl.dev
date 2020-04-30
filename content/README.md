@@ -2,7 +2,7 @@
 home: true
 navbar: true
 hideNavbarLogo: false
-heroImage: /images/cuttlefish.jpg
+heroImage: /images/kuttl-horizontal-logo.png
 heroText:
 tagline: The KUbernetes Test TooL (kuttl)
 actionText: ⇝ Get Started ⇜
@@ -78,4 +78,3 @@ It's insanely easy to get started with KUTTL - follow this [handy guide](/docs/)
 [Get started](docs/README.md) with KUTTL today, join the [KUDO community](https://kudo.dev/community/), and test your next operator with KUTTL!
 
 You can find more talks, tutorials, and events on the KUDO [community page](https://kudo.dev/community/#community-content).
-
