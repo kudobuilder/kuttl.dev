@@ -33,6 +33,8 @@ Now that the KUTTL CLI is installed, we can write a test. The KUTTL test CLI org
 * A "test suite" is comprised of many test cases that are run in parallel.
 * The "test harness" is the tool that runs test suites (the KUTTL CLI).
 
+Be aware that KUTTL CLI expects a kuttl-test.yaml needs to be availalbe, see [setup the kuttl kubectl plugin](cli.md#setup-the-kuttl-kubectl-plugin) if you didn't do so yet.
+
 ### Create a Test Case
 
 First, let's create a directory for our test suite, let's call it `tests/e2e`:
