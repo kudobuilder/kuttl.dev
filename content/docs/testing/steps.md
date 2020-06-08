@@ -102,3 +102,14 @@ kind: TestStep
 commands:
   - command: kubectl kudo install zookeeper --skip-instance
 ```
+
+Use defining commands, it is possible to use shell expansion in the command or the scripts the command calls.  Command expansion is the replacement of a variable beginning with `$` with a value from the env such as `$HOME`.  Expands include the OS environment variables.  In addition KUTTL provides or replaces the following:
+
+- `$NAMESPACE` is the namespace kuttl is running the test under
+- `$PATH` KUTTL prepends the $PATH with the `$CWD/bin`
+- `$KUBECONFIG` is the `$CWD/kubeconfig`
+
+
+::: warning Command Expansion of `$`
+The `$` in the command signifies the need for an expansion.  If you have a need to use `$` without expansion, you will need to escape it by expressing `$$` which will result in 1 `$` when the command runs.
+:::
