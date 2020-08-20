@@ -95,6 +95,10 @@ The `Command` object is used by `TestSteps` and `TestSuites` to enable running c
 Field         |   Type | Description
 --------------|--------|---------------------------------------------------------------------
 command       | string | The command and argument to run as a string.
+script        | string | Allows a shell script to run - namespaced and command should not be used with script.  namespaced is ignored and command is an error.  env expansion is depended upon the shell but ENV is passed to the runtime env.
 namespaced    | bool   | If set, the `--namespace` flag will be appended to the command with the namespace to use (the test namespace for a test step or "default" for the test suite).
 ignoreFailure | bool   | If set, failures will be ignored.
 background    | bool   | If this command is to be started in the background. These are only support in TestSuites. 
+skipLogOutput | bool   | If set, the output from the command is *not* logged. Useful for sensitive logs or to reduce noise.
+timeout       | int    | Override the TestSuite timeout for this command (in seconds).
+
