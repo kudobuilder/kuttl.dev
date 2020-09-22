@@ -130,18 +130,20 @@ commands:
 
 KUTTL `test` is designed to function in 2 distinct modes managed by the use of the `--namespace` flag.
 
-1. By default, KUTTL will create a namespace, run a series of steps defined by a test, then delete the namespace.  It will create a namespace for each test running each test in namespace isolation.  Since, KUTTL owns the namespace, it deletes it as part of cleanup.
+1. By default, KUTTL will create a namespace, run a series of steps defined by a test, then delete the namespace.  It will create a namespace for each test running in namespace isolation.  Since, KUTTL owns the namespace, it deletes it as part of cleanup.
 
-1. When `--namespace` specifies a namespace, it is expected that the namespace exits.  KUTTL in this mode, does **NOT** create or delete the namespace.  All tests are run and share this namespace by default.
+1. When `--namespace` specifies a namespace, it is expected that the namespace exists.  KUTTL in this mode, does **NOT** create or delete the namespace.  All tests are run and share this namespace by default.  If the namespace does NOT exist, the test fails.
 
 ### Single Namespace Testing
 
-When running with the `--namespace`, there are potential consequences which very important to understand.  Normally when KUTTL is in the "apply" phase, if an object doesn't exist, it is created.  If it does exist, it is merge patch updated.  When creating a series of tests which do NOT share a namespace, potentially the same object is referenced in multiple tests.  Those objects are separated by namespace and are auto-cleaned up by the deleting of the namespace. When running in the same namespace, this cleanup does NOT happen.  It is the responsibility of the test designers to delete the objects pre- or post-test.  This results in TestSuites designed to run in single namespace can be run in the default multi-namespace mode, but it is possible the reverse isn't true.  More care needs to be taken in single namespace testing for pre/post test management.
+When running with the `--namespace`, there are potential consequences which are very important to understand.  Normally when KUTTL is in the "apply" phase, if an object doesn't exist, it is created.  If it does exist, it is merge patch updated.  When creating a series of tests which do NOT share a namespace, potentially the same object is referenced in multiple tests.  Those objects are separated by namespace and are auto-cleaned up by the deleting of the namespace. When running in the same namespace, this cleanup does NOT happen.  It is the responsibility of the test designers to delete the objects pre- or post-test.  This results in TestSuites designed to run in single namespace can be run in the default multi-namespace mode, but it is possible the reverse isn't true.  More care needs to be taken in single namespace testing for pre/post test management.
+
+It is worth noting that extra care noted above is necessary for the "happy path". IF a test fails and does not clean up properly, some future test (during this testsuite) may be affected. For these reasons, running parallel tests for single namespace testing could also run into challenges and is not recommended.
 
 
 ## Permissions / RBAC Rules
 
-KUTTL was initially design to "own" a cluster for testing.  In it's default mode, it needs to be able to create and delete namespaces, as well as create/update/view kubernetes objects in that namespace.  The RBAC needs in this mode include:
+KUTTL was initially designed to "own" a cluster for testing.  In it's default mode, it needs to be able to create and delete namespaces, as well as create/update/view kubernetes objects in that namespace.  The RBAC needs in this mode include:
 
 1. POST, GET, LIST, PUT, PATCH, DELETE on namespace and the objects in that namespace. 
 1. GET, LIST events
