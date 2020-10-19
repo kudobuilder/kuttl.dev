@@ -146,7 +146,7 @@ kubectl kuttl test --start-kind=true ./tests/e2e/
 To add this test suite to your project, create a `kuttl-test.yaml` file:
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
 testDirs:
 - ./tests/e2e/

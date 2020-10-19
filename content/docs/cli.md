@@ -115,7 +115,7 @@ If set, the specific test case to run.
 KUTTL test command is the heart of the test harness.  It requires a kuttl-test.yaml which defines the test setup.
 
 ```yaml
-apiVersion: kudo.dev/v1beta1
+apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
 testDirs:
 - ./test/integration
