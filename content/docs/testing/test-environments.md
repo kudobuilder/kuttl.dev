@@ -89,7 +89,7 @@ Before running a test suite, it may be necessary to setup the Kubernetes cluster
 Your `kuttl-test.yaml` can specify the settings needed to setup the cluster:
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
 startControlPlane: true
 testDirs:

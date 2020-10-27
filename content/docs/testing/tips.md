@@ -16,8 +16,8 @@ docker build -t myimage .
 
 And then in the TestSuite, set:
 
-```
-apiVersion: kudo.dev/v1alpha1
+```yaml
+apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
 startKIND: true
 kindContainers:
@@ -99,7 +99,7 @@ Note that CRDs created via the `crdDir` test suite configuration are available f
 You can test a Helm chart by installing it in either a test step or your test suite:
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
 commands:
 - command: kubectl create serviceaccount -n kube-system tiller
@@ -121,7 +121,7 @@ kindNodeCache: true
 By default, [kind](https://kind.sigs.k8s.io/) does not persist its containerd directory, meaning that on every test run you will have to download all of the images defined in the tests. However, the kuttl test harness supports creating a named Docker volume for each node specified in the kind configuration (or the default node if no nodes or configuration are specified) that will be used for each test run:
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
 startKIND: true
 kindNodeCache: true

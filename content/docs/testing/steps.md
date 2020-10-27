@@ -55,7 +55,7 @@ spec:
 To delete objects at the beginning of a test step, you can specify object references to delete in your `TestStep` configuration. In a test step file, add a `TestStep` object:
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestStep
 delete:
 # Delete a Pod
@@ -85,7 +85,7 @@ The test harness will wait for the objects to be successfully deleted, if they e
 A `TestStep` configuration can also specify commands to run before running the step:
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestStep
 commands:
   - command: kubectl apply -f https://raw.githubusercontent.com/kudobuilder/kudo/master/docs/deployment/10-crds.yaml
@@ -97,7 +97,7 @@ If the `namespaced` setting is set, the `--namespace` flag is set to the test st
 It is also possible to use any installed kubectl plugin when calling kubectl commands:
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestStep
 commands:
   - command: kubectl kudo install zookeeper --skip-instance

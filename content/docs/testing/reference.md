@@ -9,7 +9,7 @@
 The `TestSuite` object specifies the settings for the entire test suite and should live in the test suite configuration file (`kuttl-test.yaml` by default, or `--config`):
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestSuite
 startKIND: true
 kindContainers:
@@ -44,7 +44,7 @@ kindContainers    | list of strings  | List of Docker images to load into the KI
 The `TestStep` object can be used to specify settings for a test step and can be specified in any test step YAML.
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestStep
 delete:
 - apiVersion: v1
@@ -77,7 +77,7 @@ labels     | map    | If specified, a label selector to use when looking up obje
 The `TestAssert` object can be used to specify settings for a test step's assert and must be specified in the test step's assert YAML.
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestAssert
 timeout: 30
 ```
