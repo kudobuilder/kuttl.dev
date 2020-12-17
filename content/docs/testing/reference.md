@@ -37,7 +37,12 @@ timeout           | int              | Override the default timeout of 30 second
 parallel          | int              | The maximum number of tests to run at once.                                              | 8
 artifactsDir      | string           | The directory to output artifacts to (current working directory if not specified).       | .
 commands          | list of [Command](#command) | Commands to run prior to running the tests.                                   | []
-kindContainers    | list of strings  | List of Docker images to load into the KIND cluster once it is started. | []
+kindContainers    | list of strings  | List of Docker images to load into the KIND cluster once it is started.                  | []
+reportFormat      | string           | Determines the report format. If empty, no report is generated. One of: JSON, XML.       |
+reportName        | string           | The name of report to create. This field is not used unless reportFormat is set.         | "kuttl-test"
+namespace         | string           | The namespace to use for tests. This namespace will be created if it does not exist and removed if it was created (unless `skipDelete` is set). If no namespace is set, one will be auto-generated. |
+suppress          | list of strings  | Suppresses log collection of the specified types. Currently only `events` is supported.  |
+
 
 ## TestStep
 
@@ -101,4 +106,3 @@ ignoreFailure | bool   | If set, failures will be ignored.
 background    | bool   | If this command is to be started in the background. These are only support in TestSuites. 
 skipLogOutput | bool   | If set, the output from the command is *not* logged. Useful for sensitive logs or to reduce noise.
 timeout       | int    | Override the TestSuite timeout for this command (in seconds).
-
