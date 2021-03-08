@@ -18,7 +18,7 @@ kubectl kuttl test --kubeconfig=mycluster.yaml
 
 ## Kubernetes-in-docker
 
-The KDUO test harness has a built in integration with [kind](https://github.com/kubernetes-sigs/kind) to start and interact with kubernetes-in-docker clusters.
+KUTTL has a built in integration with [kind](https://github.com/kubernetes-sigs/kind) to start and interact with kubernetes-in-docker clusters.
 
 To start a kind cluster in your tests either specify it on the command line:
 
