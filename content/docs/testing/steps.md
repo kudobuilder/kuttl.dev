@@ -119,7 +119,7 @@ The `$` in the command signifies the need for an expansion.  If you have a need 
 The command allows only a single binary with parameters to be executed. It does not allow any shell scripting, especially pipes to be used. For bigger problems, it is fine to write a custom shell script and call this via the command, but for simple tasks, KUTTL allows the use of an inline script:
 
 ```yaml
-apiVersion: kudo.dev/v1alpha1
+apiVersion: kuttl.dev/v1beta1
 kind: TestStep
 commands:
   - script: kubectl kudo init --upgrade --dry-run --output yaml | kubectl delete -f -
