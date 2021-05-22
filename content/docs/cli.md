@@ -43,7 +43,7 @@ Provides general help or help on a specific command
 Print the current KUTTL version.
 :::
 
-::: flag kubectl kudo test
+::: flag kubectl kuttl test
 Run KUTTL test harness.
 :::
 
