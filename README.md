@@ -1,3 +1,5 @@
+Just practice
+
 # KUTTL Website
 
 The KUTTL web site is build using [VuePress](https://v1.vuepress.vuejs.org/).
