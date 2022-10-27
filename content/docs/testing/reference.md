@@ -47,6 +47,8 @@ suppress          | list of strings  | Suppresses log collection of the specifie
 
 The `TestStep` object can be used to specify settings for a test step and can be specified in any test step YAML.
 
+Its `apply`, `assert` and `error` settings may be useful to reuse a number of applies across tests / test steps. See [KEP-0004-test-composability](https://github.com/kudobuilder/kuttl/blob/b95698f/keps/0004-test-composability.md) for more details and examples.
+
 ```yaml
 apiVersion: kuttl.dev/v1beta1
 kind: TestStep
@@ -60,13 +62,18 @@ commands:
 
 Supported settings:
 
-Field    |          Type             | Description
----------|---------------------------|---------------------------------------------------------------------
-delete   | list of object references | A list of objects to delete, if they do not already exist, at the beginning of the test step. The test harness will wait for the objects to be successfully deleted before applying the objects in the step.
-index    | int                       | Override the test step's index.
-commands | list of [Command](#command) | Commands to run prior at the beginning of the test step.
+| Field     | Type                                                                                                                          | Description                                                                                                                                                                                                  |
+|-----------|-------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| delete    | list of [object references](#object-reference)                                                                                | A list of objects to delete, if they do not already exist, at the beginning of the test step. The test harness will wait for the objects to be successfully deleted before applying the objects in the step. |
+| index     | int                                                                                                                           | Override the test step's index.                                                                                                                                                                              |
+| commands  | list of [Command](#command)                                                                                                   | Commands to run prior at the beginning of the test step.                                                                                                                                                     |
+| apply     | list of String (paths). Each path may point to a file or directory, and is relative to the TestStep the folder is defined in. | List of resources to be *applied* in this step                                                                                                                                                               |
+| assert    | list of String (paths). Each path may point to a file or directory, and is relative to the TestStep the folder is defined in. | List of resources to be *assert expected* in this step                                                                                                                                                       |
+| error     | list of String (paths). Each path may point to a file or directory, and is relative to the TestStep the folder is defined in. | List of resources to be *assert errored* in this step                                                                                                                                                         |
 
-Object Reference:
+
+
+### Object Reference:
 
 Field      |   Type | Description
 -----------|--------|---------------------------------------------------------------------
