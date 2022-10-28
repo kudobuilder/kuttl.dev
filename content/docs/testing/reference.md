@@ -94,9 +94,21 @@ timeout: 30
 
 Supported settings:
 
-| Field   | Type | Description                                           | Default |
-|---------|------|-------------------------------------------------------|---------|
-| timeout | int  | Number of seconds that the test is allowed to run for | 30      |
+| Field      | Type                                            | Description                                                     | Default |
+|------------|-------------------------------------------------|-----------------------------------------------------------------|---------|
+| timeout    | int                                             | Number of seconds that the test is allowed to run for           | 30      |
+| commands   | list of [TestAssertCommand](#testassertcommand) | A set of commands to be run as assertions for the current step  | empty   | 
+
+### TestAssertCommand
+
+The `TestAssertCommand` object is used by `TestAssert` to specify an assertion based on the result of the execution of a command:
+
+| Field         | Type   | Description                                                                                                                                                                                                           |
+|---------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| command       | string | The command and argument to run as a string.                                                                                                                                                                          |
+| script        | string | Allows a shell script to run - namespaced and command should not be used with script.  namespaced is ignored and command is an error.  env expansion is depended upon the shell but ENV is passed to the runtime env. |
+| namespaced    | bool   | If set, the `--namespace` flag will be appended to the command with the namespace to use (the test namespace for a test step or "default" for the test suite).                                                        |
+| skipLogOutput | bool   | If set, the output from the command is *not* logged. Useful for sensitive logs or to reduce noise.                                                                                                                    |
 
 ## Command
 
