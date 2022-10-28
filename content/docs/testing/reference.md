@@ -1,5 +1,7 @@
 # KUTTL Configuration Reference
 
+Source of truth for kuttl configuration is the [source code](https://github.com/kudobuilder/kuttl/blob/main/pkg/apis/testharness/v1beta1/test_types.go#L16), however this page illustrates most common fields in kuttl configuration.  
+
 <h2>Table of Contents</h2>
 
 [[toc]]
