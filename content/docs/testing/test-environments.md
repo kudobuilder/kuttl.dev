@@ -140,12 +140,11 @@ When running with the `--namespace`, there are potential consequences which are 
 
 It is worth noting that extra care noted above is necessary for the "happy path". IF a test fails and does not clean up properly, some future test (during this testsuite) may be affected. For these reasons, running parallel tests for single namespace testing could also run into challenges and is not recommended.
 
-
 ## Permissions / RBAC Rules
 
-KUTTL was initially designed to "own" a cluster for testing.  In it's default mode, it needs to be able to create and delete namespaces, as well as create/update/view kubernetes objects in that namespace.  The RBAC needs in this mode include:
+KUTTL was initially designed to "own" a cluster for testing.  In its default mode, it needs to be able to create and delete namespaces, as well as create/update/view kubernetes objects in that namespace.  The RBAC needs in this mode include:
 
-1. POST, GET, LIST, PUT, PATCH, DELETE on namespace and the objects in that namespace. 
+1. POST, GET, LIST, PUT, PATCH, DELETE on namespace and the objects in that namespace.
 1. GET, LIST events
 
 It is possible to turn off events with the `--suppress-log=events`.  This removes the need to GET or LIST events.
@@ -153,5 +152,3 @@ It is possible to turn off events with the `--suppress-log=events`.  This remove
 When running in single namespace testing mode, no permissions are needed for namespaces, reducing permissions to events.  In this mode, it is possible to remove KUTTLs access needs by using the `--suppress-log=events`.  In this mode, you will need access in the explicitly provided namespace to create, update and delete kubernetes objects defined in the test.
 
 **NOTE:** This defined permissions are for KUTTL itself and do NOT take in account the test that kuttl is running.  It is possible for the test to create a namespace which is considered outside the KUTTL permission needs.
-
-

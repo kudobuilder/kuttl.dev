@@ -43,7 +43,6 @@ reportName        | string           | The name of report to create. This field 
 namespace         | string           | The namespace to use for tests. This namespace will be created if it does not exist and removed if it was created (unless `skipDelete` is set). If no namespace is set, one will be auto-generated. |
 suppress          | list of strings  | Suppresses log collection of the specified types. Currently only `events` is supported.  |
 
-
 ## TestStep
 
 The `TestStep` object can be used to specify settings for a test step and can be specified in any test step YAML.
@@ -103,6 +102,6 @@ command       | string | The command and argument to run as a string.
 script        | string | Allows a shell script to run - namespaced and command should not be used with script.  namespaced is ignored and command is an error.  env expansion is depended upon the shell but ENV is passed to the runtime env.
 namespaced    | bool   | If set, the `--namespace` flag will be appended to the command with the namespace to use (the test namespace for a test step or "default" for the test suite).
 ignoreFailure | bool   | If set, failures will be ignored.
-background    | bool   | If this command is to be started in the background. These are only support in TestSuites. 
+background    | bool   | If this command is to be started in the background. These are only support in TestSuites.
 skipLogOutput | bool   | If set, the output from the command is *not* logged. Useful for sensitive logs or to reduce noise.
 timeout       | int    | Override the TestSuite timeout for this command (in seconds).

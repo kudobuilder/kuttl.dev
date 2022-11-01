@@ -2,7 +2,6 @@
 
 It is possible to integrate KUTTL into your own Go test infrastructure.  KUDO provides as an example `kubectl kudo test` using the KUTTL test harness.  The following are the necessary steps.
 
-
 ## Add KUTTL to Go.mod
 
 `go get github.com/kudobuilder/kuttl`

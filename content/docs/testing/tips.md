@@ -10,7 +10,7 @@ When KIND clusters are started, you may want to load an image that has not been 
 
 For example:
 
-```
+```sh
 docker build -t myimage .
 ```
 
