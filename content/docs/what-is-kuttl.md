@@ -10,7 +10,6 @@ It provides a way to inject an operator (subject under test) during the TestSuit
 
 It is also possible to have KUTTL automate the setup of a cluster.
 
-
 ## Motivation
 
 Testing Kubernetes operators is not easy. As the KUDO team was building a "declarative" Kubernetes operator, it just made sense to create a declarative way to test as well.  The motivation is to leverage the existing Kubernetes eco-system for resource management (YAMLs) in a way to **setup** a test and as well as a way to **assert** state within the cluster.
@@ -20,6 +19,7 @@ Testing Kubernetes operators is not easy. As the KUDO team was building a "decla
 The testing eco-system is vast and includes at a minimum low level unit tests, integration tests and end-to-end testing.  KUTTL is built to support some kubernetes integration test scenarios and is most valuable as an end-to-end (e2e) test harness.
 
 KUTTL is great when you want to:
+
 * Provide tests against your Custom Resource Definitions (CRDs)
 * Inject a controller and assert states in a running cluster
 * Test a set of TestSuites against multiple implementations and multiple versions of Kubernetes clusters.

@@ -33,13 +33,13 @@ Now that the KUTTL CLI is installed, we can write a test. The KUTTL test CLI org
 * A "test suite" is comprised of many test cases that are run in parallel.
 * The "test harness" is the tool that runs test suites (the KUTTL CLI).
 
-Be aware that KUTTL CLI expects a kuttl-test.yaml needs to be availalbe, see [setup the kuttl kubectl plugin](cli.md#setup-the-kuttl-kubectl-plugin) if you didn't do so yet.
+Be aware that KUTTL CLI expects a kuttl-test.yaml needs to be available, see [setup the kuttl kubectl plugin](cli.md#setup-the-kuttl-kubectl-plugin) if you didn't do so yet.
 
 ### Create a Test Case
 
 First, let's create a directory for our test suite, let's call it `tests/e2e`:
 
-```
+```sh
 mkdir -p tests/e2e
 ```
 
@@ -96,7 +96,7 @@ This test step will be considered completed once the pod matches the state that 
 
 Let's run this test suite:
 
-```
+```sh
 kubectl kuttl test --start-kind=true ./tests/e2e/
 ```
 
@@ -115,7 +115,7 @@ Now that we have successfully written a test case, let's add another step to it.
 
 Create `tests/e2e/example-test/01-scale.yaml`:
 
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -137,7 +137,7 @@ status:
 
 Run the test suite again and the test will pass:
 
-```
+```sh
 kubectl kuttl test --start-kind=true ./tests/e2e/
 ```
 
@@ -157,7 +157,7 @@ Now we can run the tests just by running `kubectl kuttl test` with no arguments.
 
 Any arguments provided on the command line will override the settings in the `kuttl-test.yaml` file, e.g. to skip using kind and run the tests against a live Kubernetes cluster, run:
 
-```
+```sh
 kubectl kuttl test --start-kind=false
 ```
 

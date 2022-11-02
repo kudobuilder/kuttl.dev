@@ -47,8 +47,6 @@ Print the current KUTTL version.
 Run KUTTL test harness.
 :::
 
-
-
 ## Flags
 
 ::: tip Usage
@@ -107,7 +105,6 @@ Start a KIND cluster for the tests (cannot be used with --start-control-plane).
 If set, the specific test case to run.
 :::
 
-
 ## Examples
 
 ### KUTTL Test
@@ -123,17 +120,21 @@ parallel: 4
 ```
 
 The default can be run as follows:
+
 ```bash
 kubectl kuttl test  pkg/test/test_data/
 ```
+
 When running with no defined [test environment](testing/test-environments.md), the default is a preconfigured cluster defined in `$KUBECONFIG`.
 
 To run with the mocked control plane run:
+
 ```bash
 kubectl kuttl test --start-control-plane pkg/test/test_data/
 ```
 
 In order to run with the full kind cluster stack, run:
+
 ```bash
 kubectl kuttl test --start-kind pkg/test/test_data/
 ```
