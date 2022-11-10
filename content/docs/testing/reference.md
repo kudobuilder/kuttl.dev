@@ -84,6 +84,11 @@ The `TestAssert` object can be used to specify settings for a test step's assert
 apiVersion: kuttl.dev/v1beta1
 kind: TestAssert
 timeout: 30
+commands:
+- command: echo hello
+collectors:
+- type: pod
+  pod: nginx
 ```
 
 Supported settings:
@@ -91,10 +96,28 @@ Supported settings:
 Field   | Type | Description                                           | Default
 --------|------|-------------------------------------------------------|-------------
 timeout | int  | Number of seconds that the test is allowed to run for | 30
+collectors | list of [collectors](#collectors) | The collectors to be invoked to gather information upon step failure | N/A
+commands | list of [commands](#commands) | Commands to run prior to the beginning of the test step. | N/A
 
-## Command
+## Collectors
 
-The `Command` object is used by `TestSteps` and `TestSuites` to enable running commands in tests:
+The `Collectors` object is used by the `TestAssert` object as a way to collect certain information about the outcome of an `assert` or `errors` step should it fail. A collector is only invoked in cases where a failure occurs and not if the step succeeds. Collection can occur from Pod logs, Namespace events, or the output of a custom command.
+
+Supported settings:
+
+Field   | Type | Description                                           | Default
+--------|------|-------------------------------------------------------|-------------
+type | string  | Type of collector to run. Values are one of `pod`, `command`, or `events`. If the field named `command` is specified, `type` is assumed to be `command`. If the field named `pod` is specified, `type` is assumed to be `pod`. | `pod`
+pod | string  | The pod name from which to access logs. | N/A
+namespace | string  | Namespace in which the pod or events can be located. | N/A
+container | string  | Container name inside the pod from which to fetch logs. If empty assumes all containers. | unset
+selector | string  | Label query to select a pod. | N/A
+tail | int  | The number of last lines to collect from a pod. | 10 (if selector); all (if pod name)
+command | string  | Command to run. Requires an empty type or type `command`. Must not specify fields `pod`, `namespace`, `container`, or `selector` if present. | N/A
+
+## Commands
+
+The `Commands` object is used by `TestStep`, `TestAssert`, and `TestSuite` to enable running commands in tests:
 
 Field         |   Type | Description
 --------------|--------|---------------------------------------------------------------------
