@@ -105,6 +105,12 @@ Start a KIND cluster for the tests (cannot be used with --start-control-plane).
 If set, the specific test case to run.
 :::
 
+::: flag -v or -vv (int)
+Logging verbosity level. 0=normal, 1=verbose, 2=detailed, 3 or more =trace.
+:::
+
+
+
 ## Examples
 
 ### KUTTL Test
