@@ -103,6 +103,8 @@ commands | list of [commands](#commands) | Commands to run prior to the beginnin
 
 The `Collectors` object is used by the `TestAssert` object as a way to collect certain information about the outcome of an `assert` or `errors` step should it fail. A collector is only invoked in cases where a failure occurs and not if the step succeeds. Collection can occur from Pod logs, Namespace events, or the output of a custom command.
 
+Although failure of an `assert` or `errors` step will produce, if it contains a manifest, a diff displaying the fields which differ from these steps, this may be incomplete information to determine the cause of a failure. Some additional information may be required to fully explain why a step failed which provides fuller context. When the diff is not adequate enough information to explain a failure, a `collectors` object can be used to gather further troubleshooting information in the form of logs, events, or a command.
+
 Supported settings:
 
 Field   | Type | Description                                           | Default
