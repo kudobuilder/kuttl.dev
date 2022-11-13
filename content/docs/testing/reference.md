@@ -36,7 +36,7 @@ skipClusterDelete | bool             | If set, do not delete the mocked control 
 timeout           | int              | Override the default timeout of 30 seconds (in seconds).                                 | 30
 parallel          | int              | The maximum number of tests to run at once.                                              | 8
 artifactsDir      | string           | The directory to output artifacts to (current working directory if not specified).       | .
-commands          | list of [Command](#command) | Commands to run prior to running the tests.                                   | []
+commands          | list of [Commands](#commands) | Commands to run prior to running the tests.                                   | []
 kindContainers    | list of strings  | List of Docker images to load into the KIND cluster once it is started.                  | []
 reportFormat      | string           | Determines the report format. If empty, no report is generated. One of: JSON, XML.       |
 reportName        | string           | The name of report to create. This field is not used unless reportFormat is set.         | "kuttl-test"
