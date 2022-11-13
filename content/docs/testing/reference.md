@@ -75,7 +75,7 @@ assert   | list of files             | A list of files to assert as part of this
 error    | list of files             | A list of files to error as part of this step. See documentation for [asserts and errors](asserts-errors.md) for more information. Specified path is relative to that in which the step occurs.
 delete   | list of object references | A list of objects to delete, if they do not already exist, at the beginning of the test step. The test harness will wait for the objects to be successfully deleted before applying the objects in the step.
 index    | int                       | Override the test step's index.
-commands | list of [Command](#command) | Commands to run prior at the beginning of the test step.
+commands | list of [Commands](#commands) | Commands to run prior at the beginning of the test step.
 kubeconfig    | string                       | The Kubeconfig file to use to run the included steps(s).
 unitTest    | bool                       | Indicates if the step is a unit test, safe to run without a real Kubernetes cluster.
 
