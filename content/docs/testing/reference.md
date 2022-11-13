@@ -50,21 +50,35 @@ The `TestStep` object can be used to specify settings for a test step and can be
 ```yaml
 apiVersion: kuttl.dev/v1beta1
 kind: TestStep
+apply:
+- my-new-resource.yaml
+assert:
+- my-asserted-new-resource.yaml
+error:
+- my-errored-new-resource.yaml
+unitTest: false
 delete:
 - apiVersion: v1
   kind: Pod
   name: my-pod
 commands:
 - command: helm init
+kubeconfig: foo.kubeconfig
 ```
 
 Supported settings:
 
 Field    |          Type             | Description
 ---------|---------------------------|---------------------------------------------------------------------
+apply    | list of files             | A list of files to apply as part of this step. Specified path is relative to that in which the step occurs.
+assert   | list of files             | A list of files to assert as part of this step. See documentation for [asserts and errors](asserts-errors.md) for more information. Specified path is relative to that in which the step occurs.
+error    | list of files             | A list of files to error as part of this step. See documentation for [asserts and errors](asserts-errors.md) for more information. Specified path is relative to that in which the step occurs.
 delete   | list of object references | A list of objects to delete, if they do not already exist, at the beginning of the test step. The test harness will wait for the objects to be successfully deleted before applying the objects in the step.
 index    | int                       | Override the test step's index.
 commands | list of [Command](#command) | Commands to run prior at the beginning of the test step.
+kubeconfig    | string                       | The Kubeconfig file to use to run the included steps(s).
+unitTest    | bool                       | Indicates if the step is a unit test, safe to run without a real Kubernetes cluster.
+
 
 Object Reference:
 
