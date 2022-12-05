@@ -143,3 +143,12 @@ For intellij IDEA, see [instructions](https://www.jetbrains.com/help/idea/kubern
 - from a K8S cluster where you'd register the CRDs (by running `kubectl apply -f <crd_file.yaml>`)
 
 Screenshots in [PR #376](https://github.com/kudobuilder/kuttl/pull/376)
+
+## IDE configuration for kuttl assert files
+
+Kuttl [assert files](asserts-errors.md) may only include the important fields for the test step. As a result, some IDEs may by default complain that the kuttl assertions are lacking mandatory K8S resource fields.
+
+To avoid such noisy error notifications, you may configure the IDE with specific rules for kuttl assert to disable the K8S resources missing field warnings. 
+
+In jetbrain intellij idea, [define a new scope](https://www.jetbrains.com/help/idea/settings-scopes.html) for kuttl assert files with a pattern such as `file:*-assert.yaml`. Then adjust the K8S inspections for this scope
+See [screenshots](https://youtrack.jetbrains.com/issue/IDEA-307431/Kubernetes-Add-ability-to-suppress-k8s-schema-inspections-locally-by-comment#focus=Comments-27-6701307.0-0)
