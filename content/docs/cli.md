@@ -105,6 +105,12 @@ Start a KIND cluster for the tests (cannot be used with --start-control-plane).
 If set, the specific test case to run.
 :::
 
+::: flag --test-run-labels (string)
+Optional label set to associate with this test run.
+This label set can then be matched against by the `testRunSelector` in `TestFile` objects to optionally exclude selected files.
+The syntax is comma-separated list of key=value assignments.
+:::
+
 ::: flag -v or -vv (int)
 Logging verbosity level. 0=normal, 1=verbose, 2=detailed, 3 or more =trace.
 :::
