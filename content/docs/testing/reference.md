@@ -113,6 +113,31 @@ timeout | int  | Number of seconds that the test is allowed to run for | 30
 collectors | list of [collectors](#collectors) | The collectors to be invoked to gather information upon step failure | N/A
 commands | list of [commands](#commands) | Commands to run prior to the beginning of the test step. | N/A
 
+## TestFile
+
+A `TestFile` object can be used to provide configuration concerning a single YAML test file that contains it.
+
+```yaml
+apiVersion: kuttl.dev/v1beta1
+kind: TestFile
+testRunSelector:
+  matchLabels:
+    flavor: vanilla
+```
+
+Supported settings:
+
+| Field           | Type           | Description                                                                                                                     | Default                                                      |
+|-----------------|----------------|---------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
+| testRunSelector | label selector | If this selector does not match [labels of this test run](#test-run-labels-and-selectors), the containing file will be ignored. | Empty label selector (matches all possible test label sets). |
+
+
+### Test Run Labels and Selectors
+
+An invocation of `kuttl test` may specify a label set associated with a test run using a command line flag.
+One can then use a `TestFile` object with `testRunSelector` to decide whether a given test YAML file should be included
+in a test run or not.
+
 ## Collectors
 
 The `Collectors` object is used by the `TestAssert` object as a way to collect certain information about the outcome of an `assert` or `errors` step should it fail. A collector is only invoked in cases where a failure occurs and not if the step succeeds. Collection can occur from Pod logs, Namespace events, or the output of a custom command.
